@@ -6,4 +6,4 @@ As of February 2018 the [Fedora ngspice package](https://src.fedoraproject.org/r
 
 As a workaround I decided to build my own libngspice RPM, just including the shared libraries and extending the upstream package. This is not the optimal solution, but should be sufficient for my personal needs. I did some testing with the current development version of [KiCad](http://kicad-pcb.org/) (which supports simulation based on libngspice) and could not find any issues.
 
-This repository only includes the SPEC description file for the libngspice RPM, the ngspice source itself can be found at [Sourceforge]((http://ngspice.sourceforge.net/)). A ready-made RPM is included in my personal [aimylios/electronics](https://copr.fedorainfracloud.org/coprs/aimylios/electronics/) Copr repository.
+This repository includes the SPEC description file for the libngspice RPM and, for convenience, also the ngspice source tarball, which was copied from [Sourceforge](https://sourceforge.net/projects/ngspice/files/ng-spice-rework/27/). A ready-made RPM is included in my personal [aimylios/electronics](https://copr.fedorainfracloud.org/coprs/aimylios/electronics/) Copr repository.
