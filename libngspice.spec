@@ -6,7 +6,7 @@ Summary:        Shared libraries for ngspice
 License:        BSD
 URL:            http://ngspice.sourceforge.net
 
-Source0:        https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/ngspice/ngspice-%{version}.tar.gz
+Source0:        https://github.com/aimylios/fedora-libngspice-packaging/raw/master/ngspice-%{version}.tar.gz
 
 BuildRequires:  libGL-devel
 BuildRequires:  libICE-devel
