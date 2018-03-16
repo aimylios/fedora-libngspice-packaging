@@ -1,6 +1,6 @@
 Name:           libngspice
 Version:        27
-Release:        100%{?dist}
+Release:        101%{?dist}
 Summary:        Shared libraries for ngspice
 
 License:        BSD
@@ -30,6 +30,8 @@ This package contains the shared libraries for ngspice.
 
 %package devel
 Summary:        Headers for libngspice
+License:        BSD
+Requires:       libngspice
 
 %description devel
 Ngspice is a general-purpose circuit simulator program.
@@ -79,5 +81,8 @@ export ACLOCAL_FLAGS=-Im4
 %{_includedir}
 
 %changelog
-* Sun Feb 25 2018 Aimylios <aimylios@gmx.de> - 27-100
+* Fri Mar 16 2018 Aimylios <aimylios@xxx.xx> - 27-101
+- Add License and Requires tags for devel package
+
+* Sun Feb 25 2018 Aimylios <aimylios@xxx.xx> - 27-100
 - Initial release based on ngspice-27-2.fc28
