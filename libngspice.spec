@@ -1,12 +1,13 @@
 Name:           libngspice
-Version:        27
-Release:        101%{?dist}
+Version:        28
+Release:        100%{?dist}
 Summary:        Shared libraries for ngspice
 
 License:        BSD
 URL:            http://ngspice.sourceforge.net
 
 Source0:        https://github.com/aimylios/fedora-libngspice-packaging/raw/master/ngspice-%{version}.tar.gz
+Source1:        https://github.com/aimylios/fedora-libngspice-packaging/raw/master/ng_adms_va.tar.gz
 
 BuildRequires:  libGL-devel
 BuildRequires:  libICE-devel
@@ -16,10 +17,11 @@ BuildRequires:  libXext-devel
 BuildRequires:  libXt-devel
 BuildRequires:  readline-devel
 BuildRequires:  automake
-BuildRequires:  libtool
+BuildRequires:  gcc
 BuildRequires:  bison
 BuildRequires:  byacc
 BuildRequires:  flex
+BuildRequires:  libtool
 BuildRequires:  mot-adms
 
 Requires:       ngspice
@@ -38,7 +40,7 @@ Ngspice is a general-purpose circuit simulator program.
 This package contains the header files for ngspice.
 
 %prep
-%setup -q -n ngspice-%{version}
+%setup -q -n ngspice-%{version} -a 1
 export ACLOCAL_FLAGS=-Im4
 ./autogen.sh --adms
 
@@ -62,7 +64,8 @@ export ACLOCAL_FLAGS=-Im4
     --enable-shared \
     --enable-ndev \
     --with-readline=yes \
-    --libdir=%{_libdir}
+    --libdir=%{_libdir} \
+    --enable-oldapps
 %make_build
 
 %install
@@ -73,6 +76,7 @@ export ACLOCAL_FLAGS=-Im4
 %exclude %{_datadir}
 %exclude %{_mandir}
 %exclude %{_libdir}/ngspice
+%{_libdir}/pkgconfig/ngspice.pc
 %{_libdir}/%{name}.la
 %{_libdir}/%{name}.so*
 %license COPYING
@@ -81,6 +85,9 @@ export ACLOCAL_FLAGS=-Im4
 %{_includedir}
 
 %changelog
+* Mon Jul 16 2018 Aimylios <aimylios@xxx.xx> - 28-100
+- Update to ngspice 28
+
 * Fri Mar 16 2018 Aimylios <aimylios@xxx.xx> - 27-101
 - Add License and Requires tags for devel package
 
