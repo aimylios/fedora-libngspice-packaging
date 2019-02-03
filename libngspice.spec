@@ -1,6 +1,6 @@
 Name:           libngspice
 Version:        28
-Release:        100%{?dist}
+Release:        101%{?dist}
 Summary:        Shared libraries for ngspice
 
 License:        BSD
@@ -48,21 +48,14 @@ export ACLOCAL_FLAGS=-Im4
 %configure \
     --disable-silent-rules \
     --with-ngshared \
-    --disable-xgraph \
     --enable-adms \
     --enable-xspice \
     --enable-maintainer-mode \
     --enable-dependency-tracking \
-    --enable-capzerobypass \
     --enable-cider \
-    --enable-expdevices \
-    --enable-intnoise \
     --enable-openmp \
     --enable-predictor \
-    --enable-numparam \
-    --enable-dot-global \
     --enable-shared \
-    --enable-ndev \
     --with-readline=yes \
     --libdir=%{_libdir} \
     --enable-oldapps
@@ -76,15 +69,20 @@ export ACLOCAL_FLAGS=-Im4
 %exclude %{_datadir}
 %exclude %{_mandir}
 %exclude %{_libdir}/ngspice
-%{_libdir}/pkgconfig/ngspice.pc
-%{_libdir}/%{name}.la
-%{_libdir}/%{name}.so*
+%{_libdir}/%{name}.so.*
 %license COPYING
 
 %files devel
-%{_includedir}
+%{_includedir}/ngspice/
+%{_libdir}/%{name}.la
+%{_libdir}/%{name}.so
+%{_libdir}/pkgconfig/ngspice.pc
 
 %changelog
+* Sun Feb 03 2019 Aimylios <aimylios@xxx.xx> - 28-101
+- Fix location and ownership of files and folders
+- Synchronise options to the new upstream package of libngspice
+
 * Mon Jul 16 2018 Aimylios <aimylios@xxx.xx> - 28-100
 - Update to ngspice 28
 
